@@ -33,6 +33,8 @@
   <body>
     <div id="patientForm">
       <h3 style="text-decoration: underline">Patient Report Transaction</h3>
+      <label>PatientAddress</label><br>
+      <input type="text" id="patientAddress"><br> 
       <label>PatientID</label><br>
       <input type="text" id="patientID"><br> 
       <label>Test Code</label><br>
@@ -65,11 +67,19 @@
       };
       $('#outputLog').append(JSON.stringify(data,undefined,2)+'<br>');
       $('#outputLog').append('Please wait while the transaction is processed...<br>');
+      updatetransaction(data);
     });
     </script>
 
   <script type="text/javascript">
     var block= new blockchain();
+
+    function updatetransaction(data){
+      from='1M9DEbshvayxoaCmZPmb7aD7StGvzfARNy';
+      to=$('#patientAddress').val();
+      hash=block.createTransaction(from,to,data);
+      $('#outputLog').append('Record upadated with the hash '+hash+'<br>');
+    }
   </script>
   
   </body>

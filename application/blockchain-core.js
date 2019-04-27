@@ -18,4 +18,5 @@ blockchain.prototype.createTransaction=function(from, to,data){
   tx.meta.hash = hash;
   memPool.push(tx);
   console.log(tx);
+  return(hash);
 }
