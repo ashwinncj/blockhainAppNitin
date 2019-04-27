@@ -1,0 +1,2 @@
+This is an input message to be encoded.
+Testing the encryption of OpenSSL
